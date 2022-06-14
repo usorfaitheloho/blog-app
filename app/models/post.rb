@@ -9,4 +9,8 @@ class Post < ApplicationRecord
     user.increment(:posts_counter)
   end
 
+  def recent_comment
+    comments.order(created_at: :desc).limit(5)
+  end
+
 end
