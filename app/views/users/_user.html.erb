@@ -3,7 +3,7 @@
         <%= image_tag user.Photo %>
     </div>
     <div class="user-post">
-     <h2><%= user.Name %></h2>
+     <h2><%= link_to user.Name, user %></h2>
      <p>Number of posts<%= user.PostsCounter %></p>
     </div>
 </section>
