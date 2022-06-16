@@ -1,15 +1,8 @@
 <main>
 
-<% @users.each |user| do %>
-  <section>
-    <div>
-        <%= user.photo %>
-    </div>
-    <div>
-    <h1><%= user.name %></h1>
-    <p>Number of posts: <%= user.post_counter%> <p>
-    </div>
-  </section>
+<h1>Blog App Users<h1>
+<% @users.each do |user| %>
+  <%= render 'user', user: user %>
   <% end %>
 
 </main>
