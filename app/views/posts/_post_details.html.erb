@@ -1,0 +1,18 @@
+<div class="post">
+  <div class="post-header">
+    <h2>Post by <%= post.user.name %></h2>
+    <small>
+      <span>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
+    </small>
+  </div>
+  <p>
+    <%= post.text %>
+  </p>
+</div>
+<div class="comments-wrapper">
+  <% @post.comments.each do |comment| %>
+    <div class="comment-card">
+     <%= render "comment/comment", comment: comment %>
+    </div>
+  <% end %>
+</div> 
