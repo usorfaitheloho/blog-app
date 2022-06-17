@@ -1,2 +1,5 @@
-<p>user</p>
-<p><%=comment.user.name %>: <%= comment.text %> </p> 
+<section>
+<% comment.each do |comment| %>
+    <p><%= comment.user.name %>: <%= comment.text %></p>
+<% end %>
+</section> 

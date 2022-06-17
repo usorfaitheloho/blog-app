@@ -5,7 +5,7 @@
       <ul>
         <% post.comments.each do |comment| %>
           <li>
-             <%= render "comments/comment", comment: comment %>
+             <%= render "comment/comment", comment: post.recent_comments %>
           </li>
           <% end %>
       </ul>
