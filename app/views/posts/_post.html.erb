@@ -1,3 +1,3 @@
 <h3>Post #<%= index + 1 %></h3>
-<p><%= post.Text %></p>
-<p><span>Comments: <%= post.comments_counter %></span><span>Likes: <%= post.likes_counter %></span></p>
+<p><%= post.text %></p>
+<p><span>Comments: <%= post.comments_counter ? post.comments_counter : 0 %></span><span>    Likes: <%= post.likes_counter ? post.likes_counter : 0 %></span></p> 

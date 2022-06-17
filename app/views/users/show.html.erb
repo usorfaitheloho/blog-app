@@ -2,14 +2,14 @@
 <%= render 'user', user: @user %>
   <div>
     <h3>Bio</h3>
-    <p><%= @user.Bio %></p>
+    <p><%= @user.bio %></p>
   <div>
   <div>
     <% @posts.each_with_index do |post, index| %>
       <%= render partial: "posts/post" , locals: { post: post, index: index } %>
     <% end %>
   </div>
-   <button class="button mt-4 p-2">
+   <button class="button">
   See all posts
   </button>
 </section> 
