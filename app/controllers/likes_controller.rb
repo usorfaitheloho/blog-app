@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 
     return unless @like.save
 
-    flash[:success] = 'You have liked this post'
+    flash[:alert] = 'You have liked this post'
     redirect_back_or_to user_post_url(@post_author, @post)
   end
 end

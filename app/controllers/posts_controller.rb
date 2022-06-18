@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     user_id = params[:user_id]
     @user = User.find(user_id)
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
@@ -20,11 +20,11 @@ class PostsController < ApplicationController
     @post.likes_counter = 0
 
     if @post.save
-      flash[:success] = 'Post saved successfully'
+      flash[:alert] = 'Post saved successfully'
       redirect_to user_post_url(@user, @post)
     else
 
-      flash.now[:error] = 'Error: Post could not be saved'
+      flash[:notice] = 'Error: Post could not be saved'
       render :new, status: :unprocessable_entity
     end
   end
