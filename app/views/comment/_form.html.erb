@@ -1,5 +1,5 @@
 <div class="form_container">
-<%= form_with model: comment do |form| %>
+<%= form_with model: comment, url: user_posts_path, method: :post, class: 'form' do |f|%>
   <%= f.text_area :text %>
   <br>
   <%= f.submit "Comment" %>
