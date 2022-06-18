@@ -20,11 +20,11 @@ class PostsController < ApplicationController
     @post.likes_counter = 0
 
     if @post.save
-      flash[:success] = "Post saved successfully"
+      flash[:success] = 'Post saved successfully'
       redirect_to user_post_url(@user, @post)
-    else 
-      
-      flash.now[:error] = "Error: Post could not be saved"
+    else
+
+      flash.now[:error] = 'Error: Post could not be saved'
       render :new, status: :unprocessable_entity
     end
   end
