@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   after_save :update_posts_counter
 
-  validates :title, presence: true
+  validates :title, presence: true, length: {maximum: 250}
   validates :text, presence: true
 
   def update_posts_counter
