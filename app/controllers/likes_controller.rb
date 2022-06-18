@@ -4,7 +4,7 @@ class LikesController < ApplicationController
       end
 
       def create
-        @post = Post.includes(:user, comments: [:user]).find(:id)
+        @post = Post.includes(:user).find(params[:post_id])
         @post_author = @post.user
     
         @user = current_user
@@ -18,6 +18,6 @@ class LikesController < ApplicationController
         return unless @like.save
     
         flash[:success] = 'You have liked this post'
-        redirect_to @like
+        redirect_back_or_to user_post_url(@post_author, @post)
       end
 end
