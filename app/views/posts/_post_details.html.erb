@@ -8,6 +8,7 @@
   <p>
     <%= post.text %>
   </p>
+   <%= render partial: "likes/form", locals: { like: Like.new, user: post.user, post: post } %>
 </div>
 <div class="comments-wrapper">
   <% @post.comments.each do |comment| %>
@@ -15,4 +16,6 @@
      <%= render "comment/comment", comment: comment %>
     </div>
   <% end %>
+    <h3>Add new comment:</h3>
+  <%= render partial: "comment/form", locals: { comment: Comment.new, user_id: @post.user_id, post: @post } %>
 </div> 

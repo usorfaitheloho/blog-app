@@ -1,11 +1,21 @@
-<h1 class="text-center" >Create new post</h1> 
-<div class="container d-flex justify-content-center">
-
-<%= form_with model: @post, url: user_posts_url, method: :post, class: 'form' do |f| %>
-  <%= f.label :title, 'title',style:"with:100%" %>
-  <%= f.text_field :title,style:"width:100%" %>
-  <%= f.label :text, 'Content' ,style:"width:100%" %>
-  <%= f.text_area :text ,style:"width:100%" %>
-  <%= f.submit "Save" %>
-<% end %>
-</div>
+<section>
+  <h1>Create new post</h1> 
+<%= form_with model: @post, url: user_posts_path, method: :post, class: 'form' do |f|%>    <div>
+      <%= f.label :title, 'Enter post title' %><br>
+      <%= f.text_field :title %>
+      <% @post.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= f.label :text, 'Enter post content' %><br>
+      <%= f.text_area :text %>
+      <% @post.errors.full_messages_for(:text).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</section> 
