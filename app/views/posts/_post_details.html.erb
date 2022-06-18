@@ -15,4 +15,6 @@
      <%= render "comment/comment", comment: comment %>
     </div>
   <% end %>
+    <h3>Add new comment:</h3>
+  <%= render partial: "comment/form", locals: { comment: Comment.new, user_id: @post.user_id, post: @post } %>
 </div> 
