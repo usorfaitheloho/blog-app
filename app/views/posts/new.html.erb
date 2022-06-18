@@ -1,7 +1,6 @@
 <section>
   <h1>Create new post</h1> 
-    <%= form_with model: @post, url: user_posts_url, method: :post, class: 'form' do |f|%>
-    <div>
+<%= form_with model: @post, url: user_posts_path, method: :post, class: 'form' do |f|%>    <div>
       <%= f.label :title, 'Enter post title' %><br>
       <%= f.text_field :title %>
       <% @post.errors.full_messages_for(:title).each do |message| %>
