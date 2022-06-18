@@ -11,8 +11,6 @@ class LikesController < ApplicationController
 
     @liked_posts_by_user = Like.where(user: @user, post: @post)
 
-    destroy && return if @liked_posts_by_user.present?
-
     @like = Like.create(user: @user, post: @post)
 
     return unless @like.save
