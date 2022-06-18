@@ -1,45 +1,35 @@
 require 'rails_helper'
-
-RSpec.describe 'Users', type: :request do
-  context 'GET /index' do
-    it 'should return the correct response' do
-      get '/users'
+describe 'Users', type: :request do
+  before(:each) { get users_path }
+  context 'index' do
+    it 'GET /index returns okay status' do
       expect(response).to have_http_status(200)
     end
-  end
-
-  context 'GET /index' do
-    it 'should return the correct body' do
-      get '/users'
-      expect(response.body).to include('Welcome to the blog')
-    end
-  end
-
-  context 'GET /index' do
-    it 'should return the correct template' do
-      get '/users'
+    it 'GET /index renders correct template(index)' do
       expect(response).to render_template(:index)
     end
+
+    it 'GET /index include correct placeholder text' do
   end
 
-  context 'GET /show' do
-    it 'should return the correct response' do
-      get '/users/show'
+  context 'GET /index' do
+    expect(response.body).to include('Blog App Users')
+  end
+end
+end
+
+describe 'User', type: :request do
+  before(:each) { get user_path(id: 2) }
+
+    context 'show' do
+    it 'GET /show status' do
       expect(response).to have_http_status(200)
     end
-  end
-
-  context 'GET /show' do
-    it 'should return the correct body' do
-      get '/users/show'
-      expect(response.body).to include('User profile')
-    end
-  end
-
-  context 'GET /show' do
-    it 'should return the correct template' do
-      get '/users/show'
+    it 'GET /show render correct template(show)' do
       expect(response).to render_template(:show)
+    end
+    it 'GET /show include correct placeholder text' do
+      expect(response.body).to include('See user profile')
     end
   end
 end
