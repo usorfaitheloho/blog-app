@@ -8,13 +8,22 @@
   <p>
     <%= post.text %>
   </p>
+ 
   <%= render partial: "likes/form", locals: { like: Like.new, user: post.user, post: post } %>
 </div>
+  <% if can? :destroy, post %>
+    <%= button_to "Delete Post", user_post_path, method: :delete %>
+   <%end%> 
 <div class="comments-wrapper">
   <% @post.comments.each do |comment| %>
     <div class="comment-card">
       <%= render "comments/comment", comment: comment %>
     </div>
+    
+    <% if can? :destroy, comment %>
+    <%= button_to "Delete Comment", user_post_comment_path(@user, post), method: :delete %>
+   <%end%>
+
   <% end %>
   <h3>Add new comment:</h3>
   <%= render partial: "comments/form", locals: { comment: Comment.create(params.permit(:text)), user_id: @post.user_id, post: @post } %>

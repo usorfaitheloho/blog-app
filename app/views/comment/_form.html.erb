@@ -1,5 +1,5 @@
 <div class="form_container">
-<%= form_with model: comment, url: user_post_comments_url(user_id, post), method: :post, local: true, scope: :comment, class: 'form' do |f|%>
+<%= form_with model: comment, url: user_post_comments_url(user_id, post), method: :post, local: true, scope: :comment do |f|%>
   <%= f.text_area :text %>
   <br>
   <%= f.submit "Comment" %>
