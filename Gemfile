@@ -46,6 +46,7 @@ gem 'bootsnap', require: false
 # gem "sassc-rails"
 gem 'devise'
 
+gem 'cancancan'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -56,6 +57,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -70,10 +72,12 @@ group :test do
   gem 'capybara'
   gem 'ffi'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '6.0.0.rc1'
 end

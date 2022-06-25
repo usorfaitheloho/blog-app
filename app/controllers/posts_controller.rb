@@ -25,8 +25,20 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @post = Post.includes(:user, :comments).find(params[:id])
     @comment = @post.recent_comments
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:success] = 'Post was successfully deleted.'
+      redirect_to user_posts_path
+    else
+      flash[:error] = 'Something went wrong'
+      render :show
+    end
   end
 
   private
