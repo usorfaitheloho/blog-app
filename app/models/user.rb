@@ -16,7 +16,7 @@ class User < ApplicationRecord
   def is?(requested_role)
     role == requested_role.to_s
   end
-  
+
   def recent_posts
     posts.order(created_at: :desc).includes(:user).limit(3)
   end
