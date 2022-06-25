@@ -1,9 +1,9 @@
 <section>
-    <div class="img">
-         <img src="<%= user.photo %>" alt="User photo">
-    </div>
-    <div class="user-post">
-     <h2><%= link_to user.name, user %></h2>
-         <p>Number of posts <%= user.posts_counter ? user.posts_counter : 0 %></p>
-    </div>
+  <div class="img">
+  <img src="<%= user.photo %>" alt="user photo"/>
+  </div>
+  <div class="user-post">
+    <h2><%= link_to user.name, user %></h2>
+    <p>Number of posts <%= user.posts_counter || 0 %></p>
+  <div> 
 </section>

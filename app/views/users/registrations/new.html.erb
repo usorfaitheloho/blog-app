@@ -1,0 +1,25 @@
+<section class="form">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'input' %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, placeholder: "Name", class: 'input'  %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "New Password", class: 'input' %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: 'input'  %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "btn"%>
+    </div>
+  <% end %>
+</section>
