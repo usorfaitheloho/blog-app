@@ -1,8 +1,6 @@
 <main>
-
-<h1>Blog App Users<h1>
-<% @users.each do |user| %>
-  <%= render 'user', user: user %>
-  <% end %>
-
+  <h1>Welcome to Blog App<h1>
+    <% @users.each do |user|%>
+      <%= render 'user', user: user %>
+    <% end %>
 </main>

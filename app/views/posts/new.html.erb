@@ -1,21 +1,22 @@
 <section>
   <h1>Create new post</h1> 
-<%= form_with model: @post, url: user_posts_path, method: :post, class: 'form' do |f|%>    <div>
-      <%= f.label :title, 'Enter post title' %><br>
-      <%= f.text_field :title %>
+  <%= form_with model: @post, url: user_posts_path do |form|%>
+    <div>
+      <%= form.label :title, 'Enter post title' %><br>
+      <%= form.text_field :title %>
       <% @post.errors.full_messages_for(:title).each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
     <div>
-      <%= f.label :text, 'Enter post content' %><br>
-      <%= f.text_area :text %>
+      <%= form.label :text, 'Enter post content' %><br>
+      <%= form.text_area :text %>
       <% @post.errors.full_messages_for(:text).each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
     <div>
-      <%= f.submit %>
+      <%= form.submit %>
     </div>
   <% end %>
-</section> 
+</section>

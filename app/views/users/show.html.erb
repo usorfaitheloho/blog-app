@@ -1,5 +1,5 @@
 <section>
-<%= render 'user', user: @user %>
+  <%= render 'user', user: @user %>
   <div>
     <h3>Bio</h3>
     <p><%= @user.bio %></p>
@@ -9,6 +9,4 @@
       <%= render partial: "posts/post" , locals: { post: post, index: index } %>
     <% end %>
   </div>
-   <button class="button"><%= link_to "See all posts", user_posts_path(@user) %>
-  </button>
-</section> 
+</section>

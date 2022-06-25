@@ -1,13 +1,13 @@
 <%= render "users/user", user: @user%>
 <div class="container">
   <% @posts.each_with_index do |post, index| %>
-    <%= render partial: "post" , locals: { post: post, index: index } %>
+    <%= render partial: "post", locals: { post: post, index: index } %>
       <ul>
-        <% post.comments.each do |comment| %>
+        <% post.recent_comments.each do |comment| %>
           <li>
-             <%= render "comment/comment", comment: post.recent_comments %>
+            <%= render "comments/comment", comment: comment %>
           </li>
-          <% end %>
+        <% end %>
       </ul>
-      <% end %>
-</div> 
+  <% end %>
+</div>
